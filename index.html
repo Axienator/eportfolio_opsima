@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personal portfolio of an aspiring AI engineer, programmer and working student.">
+  <title>Paul Opsima – Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script src="script.js"></script>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="logo" aria-label="Back to top">PO</a>
+
+      <button id="menu-button" class="icon-button menu-button" type="button"
+              aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
+
+      <nav id="nav-menu" class="nav-menu" aria-label="Main">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button id="theme-button" class="icon-button" type="button" aria-label="Switch to light mode">☀️</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== HOME / HERO ===== -->
+    <section id="home" class="hero">
+      <!-- Animated star background (drawn by script.js) -->
+      <canvas id="constellation" aria-hidden="true"></canvas>
+
+      <div class="container hero-inner">
+
+        <h1>Paul Opsima</h1>
+        <p class="title">Aspiring AI Engineer | Programmer | Working Student</p>
+
+        <p class="socials">
+          <a href="https://github.com/Axienator" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          </a>
+           
+          <a href="#contact" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </a>
+        </p>
+
+        <div class="button-row">
+          <a href="#projects" class="button primary">View My Projects</a>
+          <a href="#contact" class="button secondary">Contact Me</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ME ===== -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About Me</h2>
+        <p class="lead">I am a working student with a strong interest in programming, software development, and emerging technologies. I enjoy coding, solving problems, and continuously learning new technical skills. My long-term goal is to become an AI Engineer, where I can apply my programming knowledge to develop intelligent systems and innovative solutions.</p>
+
+        <ul class="profile-list">
+          <li><strong>Software development</strong> I’m interested in how software is designed, built and maintained.</li>
+          <li><strong>Problem-solving</strong> I’m passionate about programming and working through problems step by step.</li>
+          <li><strong>Always learning</strong> I’m willing to learn new technologies and tools.</li>
+          <li><strong>Work and study</strong> I balance work and academic responsibilities.</li>
+          <li><strong>Future in AI</strong> I have a long-term interest in Artificial Intelligence and Machine Learning.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2>Skills</h2>
+        <div class="grid three">
+
+          <article class="card">
+            <h3>Programming</h3>
+            <ul class="tags">
+              <li>Java</li>
+              <li>Python</li>
+              <li>JavaScript</li>
+              <li>HTML</li>
+              <li>CSS</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Technical Skills</h3>
+            <ul class="tags">
+              <li>Object-Oriented Programming</li>
+              <li>Data Structures and Algorithms</li>
+              <li>SQL</li>
+              <li>Database Management</li>
+              <li>CRUD Operations</li>
+              <li>File Handling</li>
+              <li>Debugging and Troubleshooting</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Currently Learning</h3>
+            <ul class="tags learning">
+              <li>Machine Learning</li>
+              <li>Artificial Intelligence</li>
+              <li>Data Analysis</li>
+              <li>Deep Learning</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="grid two">
+
+          <!-- Featured project -->
+          <article class="card project">
+            <h3>VitalCare Management System</h3>
+            <p>A Java-based console application designed to manage clinic operations.</p>
+            <ul class="features">
+              <li>Login authentication</li>
+              <li>Role-based access</li>
+              <li>Patient management</li>
+              <li>Doctor management</li>
+              <li>Appointment scheduling</li>
+              <li>Medical records</li>
+              <li>Billing</li>
+            </ul>
+            <ul class="tags">
+              <li>Java</li>
+              <li>ArrayList</li>
+              <li>BufferedReader</li>
+              <li>BufferedWriter</li>
+              <li>File Handling</li>
+            </ul>
+            <a href="https://github.com/Axienator/VitalCare" class="button secondary" target="_blank" rel="noopener">GitHub Repository</a>
+          </article>
+
+          <!-- Reusable card for your next project -->
+          <article class="card project">
+            <h3>Next Project</h3>
+            <p>** Working In Progress **</p>
+            <ul class="tags">
+              <li>Technology</li>
+              <li>Technology</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section id="education" class="section">
+      <div class="container">
+        <h2>Education</h2>
+        <ol class="timeline">
+          <li>
+            <p class="when">2026 – Present</p>
+            <h3>Computer Science</h3>
+            <p class="where">University of Immaculate Conception</p>
+            <p>Relevant coursework or achievements: Programming, Data Structures and Algorithms, Databases.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="contact-grid">
+
+          <div class="contact-info">
+            <p>I’d love to hear from you about opportunities, collaborations or just to say hello.</p>
+            <ul>
+              <li>Email: <a id="email-link" href="mailto:paullorenzopsima@gmail.co,,m">paullorenzopsima@gmail.com</a></li>
+              <li>GitHub: <a href="https://github.com/Axienator" target="_blank" rel="noopener">https://github.com/Axienator</a></li>
+            </ul>
+          </div>
+
+          <!-- This form opens your email app. It does not send messages by itself. -->
+          <form id="contact-form" class="card" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name">
+              <p class="error" data-error-for="name"></p>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email">
+              <p class="error" data-error-for="email"></p>
+            </div>
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text">
+              <p class="error" data-error-for="subject"></p>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5"></textarea>
+              <p class="error" data-error-for="message"></p>
+            </div>
+            <button type="submit" class="button primary">Send Message</button>
+            <p id="form-status" class="status" role="status"></p>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year">2026</span> Paul Opsima. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
