@@ -1,0 +1,320 @@
+:root {
+  --bg: #1B1B1B;
+  --surface: #242424;
+  --text: #F2F2F2;
+  --muted: #A3A3A3;
+  --accent: #B9DDD7;
+  --accent-text: #141414;   /* text on accent buttons */
+  --border: #343434;
+  --glow: #2C2C2C;          /* soft hover background */
+  --star: #FFFFFF;          /* color of the star background */
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #F5F6F5;
+  --surface: #FFFFFF;
+  --text: #222B30;
+  --muted: #5F6B70;
+  --accent: #3E6E69;
+  --accent-text: #FFFFFF;
+  --border: #DCE3E1;
+  --glow: #E3EEEC;
+  --star: #4B5B61;
+  color-scheme: light;
+}
+
+/* 
+  2. BASE
+*/
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;   /* keeps headings clear of the sticky bar */
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3 { font-weight: 400; line-height: 1.2; margin: 0 0 0.75rem; }
+h2 { font-size: 2rem; margin-bottom: 2rem; }
+h3 { font-size: 1.25rem; }
+p { margin: 0 0 1rem; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+a { color: var(--accent); text-underline-offset: 4px; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.container { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
+.section { padding: 5rem 0; border-top: 1px solid var(--border); }
+
+/*
+  3. NAVIGATION
+*/
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.4s ease;
+}
+
+.header-inner { display: flex; align-items: center; gap: 1rem; height: 4rem; }
+
+.logo {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--text);
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.nav-menu { display: flex; gap: 1.5rem; }
+.nav-menu a { color: var(--muted); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+.nav-menu a:hover { color: var(--accent); }
+
+.icon-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.4s;
+}
+.icon-button:hover { border-color: var(--accent); }
+
+.menu-button { display: none; }
+
+/*
+  4. HERO  (centered, with animated stars behind)
+*/
+.hero {
+  position: relative;
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* The star background fills the whole hero */
+.hero canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;   /* sits above the canvas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Profile picture */
+.photo {
+  position: relative;
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  overflow: hidden;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.photo-fallback { color: var(--muted); font-size: 0.8rem; }
+
+h1 { font-size: clamp(2.8rem, 8vw, 4.5rem); font-weight: 300; margin-bottom: 1.25rem; }
+.title { color: var(--muted); font-size: 1.1rem; margin-bottom: 1.75rem; }
+
+.socials { display: flex; gap: 1.5rem; margin: 0 0 2.5rem; }
+.socials a { display: inline-flex; color: var(--text); transition: color 0.2s, transform 0.2s; }
+.socials a:hover { color: var(--accent); transform: translateY(-2px); }
+.socials svg { width: 1.4rem; height: 1.4rem; }
+
+.button-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin: 0; }
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--accent);
+  font: inherit;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+.button:hover { transform: translateY(-2px); }
+.button.primary { background: var(--accent); color: var(--accent-text); }
+.button.secondary { background: transparent; color: var(--accent); }
+.button.secondary:hover { background: var(--glow); }
+
+/* 
+  5. ABOUT
+*/
+.lead { max-width: 44rem; font-size: 1.15rem; }
+
+.profile-list { margin-top: 2rem; display: grid; gap: 1rem; max-width: 44rem; }
+.profile-list li { padding-left: 1rem; border-left: 2px solid var(--accent); color: var(--muted); }
+.profile-list strong { display: block; color: var(--text); font-weight: 500; }
+
+/* 
+  6. CARDS, GRIDS AND TAGS (shared)
+*/
+.grid { display: grid; gap: 1.5rem; }
+.grid.three { grid-template-columns: repeat(3, 1fr); }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s, background-color 0.4s;
+}
+.card:hover { border-color: var(--accent); }
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+.tags li {
+  padding: 0.2rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.tags.learning li { border-style: dashed; border-color: var(--accent); }
+
+/* 
+  7. PROJECTS
+*/
+.shot {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 1.25rem;
+  border: 1px dashed var(--border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.shot-fallback { color: var(--muted); font-size: 0.9rem; }
+
+.features { margin-bottom: 1rem; color: var(--muted); font-size: 0.95rem; }
+.features li { padding: 0.1rem 0 0.1rem 1.1rem; position: relative; }
+.features li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
+
+/*
+  8. EDUCATION TIMELINE
+*/
+.timeline { border-left: 2px solid var(--border); margin-left: 0.5rem; }
+.timeline li { position: relative; padding: 0 0 2.5rem 2rem; }
+.timeline li:last-child { padding-bottom: 0; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -0.5rem;
+  top: 0.4rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.when { color: var(--accent); font-size: 0.9rem; margin-bottom: 0.25rem; }
+.where { color: var(--muted); }
+
+/*
+  9. CONTACT
+*/
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start; }
+.contact-info li { margin-bottom: 0.5rem; }
+
+.field { margin-bottom: 1rem; }
+label { display: block; font-size: 0.9rem; margin-bottom: 0.25rem; color: var(--muted); }
+input, textarea {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  transition: border-color 0.2s, background-color 0.4s;
+}
+input:focus, textarea:focus { border-color: var(--accent); }
+.field.invalid input, .field.invalid textarea { border-color: #D9534F; }
+.error { color: #E5736F; font-size: 0.85rem; margin: 0.25rem 0 0; min-height: 0; }
+.status { margin: 1rem 0 0; color: var(--accent); }
+
+/*
+  10. FOOTER
+*/
+.site-footer { padding: 2rem 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; }
+.site-footer p { margin: 0; }
+
+/* 
+  11. RESPONSIVE
+*/
+/* Tablet */
+@media (max-width: 56rem) {
+  .grid.three { grid-template-columns: 1fr 1fr; }
+}
+
+/* Mobile */
+@media (max-width: 44rem) {
+  .menu-button { display: inline-block; }
+
+  /* The menu becomes a dropdown that opens when it has the "open" class */
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 1.5rem 1rem;
+  }
+  .nav-menu.open { display: flex; }
+  .nav-menu a { padding: 0.6rem 0; }
+
+  .hero { padding: 3rem 0; }
+
+  .section { padding: 3.5rem 0; }
+  .grid.three, .grid.two, .contact-grid { grid-template-columns: 1fr; }
+  .contact-grid { gap: 2rem; }
+}
+
+/* Respect people who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
